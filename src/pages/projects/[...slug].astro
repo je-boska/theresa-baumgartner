@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPosts } from '../../queries/Post';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import type { Post } from '../../types/shared';
+
+export async function getStaticPaths() {
+  const posts: Post[] = await getPosts();
+
+  return posts.map(
+    ({
+      title,
+      slug,
+      subtitle,
+      description,
+      imagesCollection: { items: images },
+    }) => {
+      return {
+        params: { slug },
+        props: { title, slug, subtitle, images, description },
+      };
+    }
+  );
+}
+
+const { title, slug, subtitle, images, description } = Astro.props;
+---
+
+<Layout title={title}>
+  <h1>{title}</h1>
+  <div set:html={documentToHtmlString(description.json)} />
+  {images.map(({ url, title }) => <img src={url} alt={title} />)}
+</Layout>

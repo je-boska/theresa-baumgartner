@@ -7,7 +7,7 @@ export default function Nav() {
         <a href='/'>Home</a>
       </li>
       <li>
-        <a href='/other-place'>Other place</a>
+        <a href='/contact'>Contact</a>
       </li>
     </ul>
   );

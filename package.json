@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^2.1.1",
     "@astrojs/tailwind": "^3.1.1",
+    "@contentful/rich-text-html-renderer": "^16.0.4",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "astro": "^2.3.0",
