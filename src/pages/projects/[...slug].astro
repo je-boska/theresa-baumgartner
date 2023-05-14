@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getPosts } from '../../queries/Post';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import type { Post } from '../../types/shared';
+import type { InferGetStaticPropsType } from 'astro';
 
 export async function getStaticPaths() {
   const posts: Post[] = await getPosts();
@@ -23,7 +24,9 @@ export async function getStaticPaths() {
   );
 }
 
-const { title, slug, subtitle, images, description } = Astro.props;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { title, slug, subtitle, images, description } = Astro.props as Props;
 ---
 
 <Layout title={title}>
