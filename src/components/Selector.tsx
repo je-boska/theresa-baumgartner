@@ -9,10 +9,16 @@ export default function Selector({
   setCurrentPost: Dispatch<React.SetStateAction<string | undefined>>;
 }) {
   return (
-    <>
-      {posts.map(({ title, slug }) => (
-        <div onClick={() => setCurrentPost(slug)}>{title}</div>
+    <div>
+      {posts.map(({ title, subtitle, slug }) => (
+        <div onClick={() => setCurrentPost(slug)}>
+          <h2 className='cursor-pointer'>
+            <span className='font-bold'>{title}</span>
+            <br />
+            <span>{subtitle}</span>
+          </h2>
+        </div>
       ))}
-    </>
+    </div>
   );
 }
