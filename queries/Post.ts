@@ -25,5 +25,5 @@ export async function getPosts() {
       }
     }`;
   const { data } = await contentfulQuery(query);
-  return data.postCollection.items;
+  return data.postCollection.items as Post[];
 }
