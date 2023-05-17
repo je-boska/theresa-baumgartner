@@ -1,22 +1,13 @@
 ---
+import { useState } from 'react';
 import Layout from '../layouts/Layout.astro';
 import { getPosts } from '../queries/Post';
 import type { Post } from '../types/shared';
+import Home from './Home';
 
 const posts: Post[] = await getPosts();
 ---
 
 <Layout title='Home'>
-  <div>
-    {
-      posts.map(({ title, slug, subtitle }) => (
-        <a href={`/projects/${slug}`}>
-          <h2>
-            {title}
-            <span>{subtitle}</span>
-          </h2>
-        </a>
-      ))
-    }
-  </div>
+  <Home posts={posts} client:load />
 </Layout>
