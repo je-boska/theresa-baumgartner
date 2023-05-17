@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { Post } from '../types/shared';
 
 export default function Viewer({ post }: { post?: Post }) {
@@ -10,8 +11,15 @@ export default function Viewer({ post }: { post?: Post }) {
       <h1>{title}</h1>
       <h1>{subtitle}</h1>
       <div className='w-full'>
-        {imagesCollection.items.map(({ url, title }, idx) => (
-          <img className='w-full' src={url} alt={title} key={idx} />
+        {imagesCollection.items.map(({ url, title, height, width }, idx) => (
+          <Image
+            className='w-full'
+            src={url}
+            alt={title}
+            key={idx}
+            height={height}
+            width={width}
+          />
         ))}
       </div>
     </div>

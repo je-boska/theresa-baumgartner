@@ -11,7 +11,7 @@ export default function Selector({
   return (
     <div>
       {posts.map(({ title, subtitle, slug }) => (
-        <div onClick={() => setCurrentPost(slug)}>
+        <div key={slug} onClick={() => setCurrentPost(slug)}>
           <h2 className='cursor-pointer'>
             <span className='font-bold'>{title}</span>
             <br />
