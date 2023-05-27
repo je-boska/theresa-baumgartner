@@ -17,8 +17,8 @@ export default function Selector({ posts }: { posts: Post[] }) {
             setPostQuery(slug);
           }}
         >
-          <h2 className='flashing-link cursor-pointer'>
-            <span className='font-bold'>{title}</span>
+          <h2 className='flashing-link cursor-pointer font-bold'>
+            <span>{title}</span>
             <br />
             <span>{subtitle}</span>
           </h2>

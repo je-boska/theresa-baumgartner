@@ -16,10 +16,10 @@
     transform: translate(0, 0);
   }
   60% {
-    transform: translate(0px, 4px);
+    transform: translate(4px, 0px);
   }
   100% {
-    transform: translate(1px, 4px);
+    transform: translate(4px, 1px);
   }
 }
 
@@ -27,5 +27,5 @@
   opacity: 1;
   animation: flash 100ms linear infinite, displace 4s linear infinite alternate;
   color: #fff;
-  text-shadow: #000 0px 2px 4px;
+  text-shadow: #000 0px 2px 20px;
 }
