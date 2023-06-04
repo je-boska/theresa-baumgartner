@@ -1,7 +1,9 @@
+import Container from '@/components/Container';
+
 export default function contact() {
   return (
-    <div>
+    <Container>
       <h1>Contact Theresa Baumgartner</h1>
-    </div>
+    </Container>
   );
 }

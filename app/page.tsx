@@ -1,12 +1,17 @@
 import { getPosts } from '@/queries/Post';
-import Home from '../components/Home';
+import Container from '@/components/Container';
 
 export default async function page() {
   const posts = await getPosts();
 
   return (
     <main>
-      <Home posts={posts} />
+      <Container>
+        <h1 className='mb-2 text-2xl font-medium uppercase'>
+          Theresa Baumgartner
+        </h1>
+        <p>Berlin based visual artist</p>
+      </Container>
     </main>
   );
 }

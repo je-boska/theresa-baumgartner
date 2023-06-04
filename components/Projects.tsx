@@ -4,15 +4,14 @@ import Viewer from '@/components/Viewer';
 import { Post } from '@/types/shared';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import Container from './Container';
 
-export default function Home({ posts }: { posts: Post[] }) {
-  const [currentPost, setCurrentPost] = useState<string | undefined>(
-    posts[0].slug
-  );
+export default function Projects({ posts }: { posts: Post[] }) {
+  const [currentPost, setCurrentPost] = useState<string | undefined>(undefined);
 
   const search = useSearchParams();
 
-  const postParam = search.get('post');
+  const postParam = search.get('current');
 
   useEffect(() => {
     if (postParam) {
@@ -20,9 +19,11 @@ export default function Home({ posts }: { posts: Post[] }) {
     }
   }, [postParam]);
 
+  if (!currentPost) return <Container>Loading...</Container>;
+
   return (
-    <div className='grid grid-cols-[1fr,3fr,1fr]'>
+    <Container>
       <Viewer post={posts.find((item) => item.slug === currentPost)} />
-    </div>
+    </Container>
   );
 }
