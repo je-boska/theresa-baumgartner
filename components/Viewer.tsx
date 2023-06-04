@@ -7,7 +7,7 @@ export default function Viewer({ post }: { post?: Post }) {
   const { title, subtitle, slug, description, imagesCollection } = post;
 
   return (
-    <div className='mr-20'>
+    <div className='mr-20 col-start-2 w-full'>
       <h1>{title}</h1>
       <h1>{subtitle}</h1>
       <div className='w-full'>

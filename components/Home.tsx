@@ -1,6 +1,5 @@
 'use client';
 
-import Selector from '@/components/Selector';
 import Viewer from '@/components/Viewer';
 import { Post } from '@/types/shared';
 import { useSearchParams } from 'next/navigation';
@@ -22,8 +21,7 @@ export default function Home({ posts }: { posts: Post[] }) {
   }, [postParam]);
 
   return (
-    <div className='grid grid-cols-[1fr,3fr]'>
-      <Selector posts={posts} />
+    <div className='grid grid-cols-[1fr,3fr,1fr]'>
       <Viewer post={posts.find((item) => item.slug === currentPost)} />
     </div>
   );
