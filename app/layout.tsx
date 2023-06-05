@@ -1,7 +1,8 @@
-import { getPosts } from '@/queries/Post';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { getPosts } from '@/queries/Post';
 import Selector from '@/components/Selector';
+import SidebarProvider from './contexts/SidebarContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,11 +19,13 @@ export default async function RootLayout({
   const posts = await getPosts();
 
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <Selector posts={posts} />
-        {children}
-      </body>
-    </html>
+    <SidebarProvider>
+      <html lang='en'>
+        <body className={inter.className}>
+          <Selector posts={posts} />
+          {children}
+        </body>
+      </html>
+    </SidebarProvider>
   );
 }

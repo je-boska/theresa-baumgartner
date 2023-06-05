@@ -19,11 +19,7 @@ export default function Projects({ posts }: { posts: Post[] }) {
     }
   }, [postParam]);
 
-  if (!currentPost) return <Container>Loading...</Container>;
+  if (!currentPost) return <Container> </Container>;
 
-  return (
-    <Container>
-      <Viewer post={posts.find((item) => item.slug === currentPost)} />
-    </Container>
-  );
+  return <Viewer post={posts.find((item) => item.slug === currentPost)} />;
 }

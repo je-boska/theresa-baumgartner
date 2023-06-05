@@ -3,13 +3,14 @@
 import { useRouter } from 'next/navigation';
 import type { Post } from '../types/shared';
 import cx from 'classnames';
-import { useState } from 'react';
+import { useContext } from 'react';
 import Nav from './Nav';
 import ArrowLeft from '@/icons/ArrowLeft';
 import ArrowRight from '@/icons/ArrowRight';
+import { SidebarContext } from '@/app/contexts/SidebarContext';
 
 export default function Selector({ posts }: { posts: Post[] }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useContext(SidebarContext);
 
   const router = useRouter();
 
@@ -20,17 +21,12 @@ export default function Selector({ posts }: { posts: Post[] }) {
   return (
     <div
       className={cx(
-        'fixed top-0 z-10 h-full w-full border-r-2 border-dashed border-black bg-white transition-all duration-500 lg:w-1/4',
+        'fixed top-0 z-10 h-full w-full border-r-2 border-dashed border-black bg-white transition-all duration-300 lg:w-1/4',
         {
           'left-0': isOpen,
           '-left-full lg:-left-1/4': !isOpen,
         }
       )}
-      onBlur={() => {
-        console.log('blur');
-        setIsOpen(false);
-      }}
-      onFocus={() => console.log('focus')}
     >
       <div className='relative w-full'>
         <div className='relative'>
@@ -62,7 +58,9 @@ export default function Selector({ posts }: { posts: Post[] }) {
               className='mb-2'
               onClick={() => {
                 setPostQuery(slug);
-                setIsOpen(false);
+                if (window.innerWidth < 1024) {
+                  setIsOpen(false);
+                }
               }}
             >
               <h2 className='cursor-pointer'>
