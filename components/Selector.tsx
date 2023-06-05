@@ -1,22 +1,29 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import type { Post } from '../types/shared';
 import cx from 'classnames';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Nav from './Nav';
 import ArrowLeft from '@/icons/ArrowLeft';
 import ArrowRight from '@/icons/ArrowRight';
-import { SidebarContext } from '@/app/contexts/SidebarContext';
+import { SidebarContext } from '@/contexts/SidebarContext';
 
 export default function Selector({ posts }: { posts: Post[] }) {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
 
   const router = useRouter();
+  const pathname = usePathname();
 
   function setPostQuery(post: string) {
     router.push(`/projects?current=${post}`);
   }
+
+  useEffect(() => {
+    if (window.innerWidth < 1024 && pathname !== '/projects') {
+      setIsOpen(false);
+    }
+  }, [pathname, setIsOpen]);
 
   return (
     <div

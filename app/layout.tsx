@@ -2,7 +2,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import { getPosts } from '@/queries/Post';
 import Selector from '@/components/Selector';
-import SidebarProvider from './contexts/SidebarContext';
+import SidebarProvider from '../contexts/SidebarContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
