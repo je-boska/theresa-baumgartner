@@ -14,7 +14,7 @@ export default function Container({
   const { isOpen } = useContext(SidebarContext);
 
   return (
-    <main className={'mt-28 flex w-full justify-start ' + className}>
+    <main className={'mt-8 flex w-full justify-start ' + className}>
       <div
         className={cx('w-full transition-all duration-300', {
           'lg:w-3/4': isOpen,
