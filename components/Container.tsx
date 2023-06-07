@@ -5,11 +5,11 @@ import { ReactNode, useContext } from 'react';
 import cx from 'classnames';
 
 export default function Container({
-  children,
   className,
+  children,
 }: {
-  children: ReactNode;
   className?: string;
+  children: ReactNode;
 }) {
   const { isOpen } = useContext(SidebarContext);
 

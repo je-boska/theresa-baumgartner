@@ -74,7 +74,9 @@ export default function Selector({ posts }: { posts: Post[] }) {
               <h2 className='cursor-pointer'>
                 <span>{title}</span>
                 <br />
-                <span className='font-semibold uppercase'>{subtitle}</span>
+                <span className='font-title text-lg font-semibold uppercase md:text-xl'>
+                  {subtitle}
+                </span>
               </h2>
             </div>
           ))}

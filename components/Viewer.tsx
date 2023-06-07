@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Post } from '../types/shared';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Section from './Section';
 
 export default function Viewer({ post }: { post?: Post }) {
   if (!post) return <div></div>;
@@ -9,10 +10,12 @@ export default function Viewer({ post }: { post?: Post }) {
 
   return (
     <div>
-      <div className='mx-4 mb-4'>
+      <Section>
         <h1>{title}</h1>
-        <h2 className='mb-2 text-2xl font-medium uppercase'>{subtitle}</h2>
-      </div>
+        <h2 className='mb-2 font-title text-2xl font-medium uppercase md:text-3xl lg:text-5xl'>
+          {subtitle}
+        </h2>
+      </Section>
       <div className='w-full'>
         {imagesCollection.items.map(({ url, title, height, width }, idx) => (
           <Image
@@ -25,12 +28,13 @@ export default function Viewer({ post }: { post?: Post }) {
           />
         ))}
       </div>
-      <div
-        className='mx-auto max-w-6xl'
-        dangerouslySetInnerHTML={{
-          __html: documentToHtmlString(description.json),
-        }}
-      />
+      <Section className='mt-4'>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: documentToHtmlString(description.json),
+          }}
+        />
+      </Section>
     </div>
   );
 }
