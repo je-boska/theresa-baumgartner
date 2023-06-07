@@ -28,7 +28,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
   return (
     <div
       className={cx(
-        'fixed top-0 z-10 h-full w-full border-l-2 border-dashed border-black bg-white transition-all duration-300 lg:w-1/4',
+        'fixed top-0 z-10 h-full w-full border-l-2 border-dotted border-black bg-white transition-all duration-300 lg:w-1/4',
         {
           'right-0': isOpen,
           '-right-full lg:-right-1/4': !isOpen,
@@ -40,7 +40,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
           <Nav />
           <div
             className={cx(
-              'group absolute bottom-0 z-20 flex w-20 cursor-pointer justify-center border-2 border-dashed border-black py-2 text-2xl hover:bg-white',
+              'group absolute bottom-0 z-20 flex w-20 cursor-pointer justify-center border-2 border-dotted border-black py-2 text-2xl hover:bg-white',
               {
                 'left-0 border-b-0 border-l-0 bg-white': isOpen,
                 'transition-color -left-20 border-r-0 bg-[rgba(255,255,255,0.3)] duration-300':
@@ -74,7 +74,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
               <h2 className='cursor-pointer'>
                 <span>{title}</span>
                 <br />
-                <span className='font-bold'>{subtitle}</span>
+                <span className='font-semibold uppercase'>{subtitle}</span>
               </h2>
             </div>
           ))}
