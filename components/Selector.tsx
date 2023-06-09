@@ -8,6 +8,7 @@ import Nav from './Nav';
 import ArrowLeft from '@/icons/ArrowLeft';
 import ArrowRight from '@/icons/ArrowRight';
 import { SidebarContext } from '@/contexts/SidebarContext';
+import Image from 'next/image';
 
 export default function Selector({ posts }: { posts: Post[] }) {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
@@ -28,7 +29,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
   return (
     <div
       className={cx(
-        'fixed top-0 z-10 h-full w-full border-l-2 border-dotted border-black bg-white transition-all duration-300 lg:w-1/4',
+        'fixed bottom-0 top-0 z-10 w-full overflow-y-scroll border-l-2 border-black bg-white transition-all duration-300 lg:w-1/4',
         {
           'right-0': isOpen,
           '-right-full lg:-right-1/4': !isOpen,
@@ -36,34 +37,12 @@ export default function Selector({ posts }: { posts: Post[] }) {
       )}
     >
       <div className='relative w-full'>
-        <div className='relative'>
-          <Nav />
-          <div
-            className={cx(
-              'group absolute bottom-0 z-20 flex w-20 cursor-pointer justify-center border-2 border-dotted border-black py-2 text-2xl hover:bg-white',
-              {
-                'left-0 border-b-0 border-l-0 bg-white': isOpen,
-                'transition-color -left-20 border-r-0 bg-[rgba(255,255,255,0.3)] duration-300':
-                  !isOpen,
-              }
-            )}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <div
-              className={cx('transition-translate duration-300', {
-                'group-hover:-translate-x-2': !isOpen,
-                'group-hover:translate-x-2': isOpen,
-              })}
-            >
-              {isOpen ? <ArrowRight /> : <ArrowLeft />}
-            </div>
-          </div>
-        </div>
-        <nav className='m-4'>
-          {posts.map(({ title, subtitle, slug }) => (
+        <Nav />
+        <nav>
+          {posts.map(({ title, subtitle, slug, imagesCollection }) => (
             <div
               key={slug}
-              className='mb-2'
+              className='mb-2 cursor-pointer'
               onClick={() => {
                 setPostQuery(slug);
                 if (window.innerWidth < 1024) {
@@ -71,12 +50,17 @@ export default function Selector({ posts }: { posts: Post[] }) {
                 }
               }}
             >
-              <h2 className='cursor-pointer'>
+              <Image
+                className='w-full'
+                src={imagesCollection.items[0].url}
+                alt={title}
+                height={imagesCollection.items[0].height}
+                width={imagesCollection.items[0].width}
+              />
+              <h2 className='p-4 font-title text-lg font-semibold uppercase md:text-xl'>
                 <span>{title}</span>
                 <br />
-                <span className='font-title text-lg font-semibold uppercase md:text-xl'>
-                  {subtitle}
-                </span>
+                <span>{subtitle}</span>
               </h2>
             </div>
           ))}

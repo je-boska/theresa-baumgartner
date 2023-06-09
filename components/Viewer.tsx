@@ -9,7 +9,7 @@ export default function Viewer({ post }: { post?: Post }) {
   const { title, subtitle, description, imagesCollection } = post;
 
   return (
-    <div>
+    <div className='relative'>
       <Section>
         <h1>{title}</h1>
         <h2 className='mb-2 font-title text-2xl font-medium uppercase md:text-3xl lg:text-5xl'>
