@@ -5,7 +5,7 @@ export default function contact() {
   return (
     <Container className='m-4'>
       <Section>
-        <h1 className='mb-2 font-title text-2xl font-medium uppercase md:text-3xl lg:text-5xl'>
+        <h1 className='font-title mb-2 text-2xl uppercase md:text-3xl lg:text-4xl'>
           Contact
         </h1>
         <p>Instagram</p>

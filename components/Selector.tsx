@@ -42,7 +42,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
           {posts.map(({ title, subtitle, slug, imagesCollection }) => (
             <div
               key={slug}
-              className='mb-2 cursor-pointer'
+              className='cursor-pointer'
               onClick={() => {
                 setPostQuery(slug);
                 if (window.innerWidth < 1024) {
@@ -51,13 +51,13 @@ export default function Selector({ posts }: { posts: Post[] }) {
               }}
             >
               <Image
-                className='w-full'
+                className='w-full lg:hidden'
                 src={imagesCollection.items[0].url}
                 alt={title}
                 height={imagesCollection.items[0].height}
                 width={imagesCollection.items[0].width}
               />
-              <h2 className='p-4 font-title text-lg font-semibold uppercase md:text-xl'>
+              <h2 className='px-4 py-2 uppercase md:text-lg'>
                 <span>{title}</span>
                 <br />
                 <span>{subtitle}</span>
