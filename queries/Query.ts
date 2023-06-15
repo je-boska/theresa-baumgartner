@@ -16,6 +16,7 @@ export async function contentfulQuery(query: any) {
       body: JSON.stringify({
         query,
       }),
+      next: { revalidate: 60 * 60 },
     }
   );
 
