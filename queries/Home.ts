@@ -1,0 +1,22 @@
+import { Page } from '@/types/shared';
+import { contentfulQuery } from './Query';
+
+export async function getHomePage() {
+  const query = /* GRAPHQL */ `
+    query HomeQuery {
+      page (id: "2Tj4SvQiQQ106swMZLMVU") {
+        title
+        description {
+            json
+        }
+        coverImage {
+            url
+            width
+            height
+            title
+        }
+      }
+    }`;
+  const { data } = await contentfulQuery(query);
+  return data.page as Page;
+}

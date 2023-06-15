@@ -33,6 +33,12 @@ export type Post = {
   };
 };
 
+export type Page = {
+  title: string;
+  description: RichText;
+  coverImage?: Asset;
+};
+
 export type Asset = {
   sys: { id: string };
   contentType: string;
