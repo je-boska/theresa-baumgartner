@@ -7,7 +7,7 @@ import { Page } from '@/types/shared';
 
 export default function SinglePage({ title, description, coverImage }: Page) {
   return (
-    <Container className='m-4'>
+    <Container>
       <Section>
         <h1 className='font-title mb-2 text-2xl uppercase md:text-3xl lg:text-4xl'>
           {title}
