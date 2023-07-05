@@ -9,7 +9,7 @@ export default function SinglePage({ title, description, coverImage }: Page) {
   return (
     <Container>
       <Section>
-        <h1 className='font-title mb-2 text-2xl uppercase md:text-3xl lg:text-4xl'>
+        <h1 className='mb-2 font-tv text-2xl uppercase md:text-3xl lg:text-4xl'>
           {title}
         </h1>
         <div

@@ -29,7 +29,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
   return (
     <div
       className={cx(
-        'fixed bottom-0 top-0 z-10 w-full overflow-y-scroll border-l-2 border-black bg-white transition-all duration-300 lg:w-1/4',
+        'fixed bottom-0 top-0 z-10 w-full overflow-y-scroll border-dotted border-black bg-white transition-all duration-300 lg:w-1/4 lg:border-l-2',
         {
           'right-0': isOpen,
           '-right-full lg:-right-1/4': !isOpen,
@@ -57,7 +57,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
                 height={imagesCollection.items[0].height}
                 width={imagesCollection.items[0].width}
               />
-              <h2 className='px-4 py-2 uppercase md:text-lg'>
+              <h2 className='px-4 py-2 font-tv uppercase md:text-lg'>
                 <span>{title}</span>
                 <br />
                 <span>{subtitle}</span>

@@ -11,7 +11,7 @@ export default function Switch() {
 
   return (
     <div
-      className='transition-color group fixed right-0 top-0 z-20 flex w-14 cursor-pointer justify-center border-b-2 border-l-2 border-black bg-[rgba(255,255,255,0.3)] py-2 text-2xl duration-300 hover:bg-white md:w-20'
+      className='transition-color group fixed right-0 top-0 z-20 flex w-14 cursor-pointer justify-center border-b-2 border-l-2 border-dotted border-black bg-[rgba(255,255,255,0.3)] py-2 text-2xl duration-300 hover:bg-white md:w-20'
       onClick={() => setIsOpen(!isOpen)}
     >
       <div

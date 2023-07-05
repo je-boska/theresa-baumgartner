@@ -5,8 +5,8 @@
 /* FONTS */
 
 @font-face {
-  font-family: 'Karrik';
-  src: url('/Karrik-Regular.woff2') format('woff2');
+  font-family: 'NeueTelevision';
+  src: url('/NeueTelevisionSTrials-Regular.woff2') format('woff2');
 }
 
 @keyframes flash {
