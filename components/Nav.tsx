@@ -1,10 +1,10 @@
 export default function Nav() {
   return (
-    <ul className='border-b-2 border-dotted border-black p-4 font-tv'>
-      <li className='mr-10 text-xl font-medium uppercase lg:mr-20'>
+    <ul className='border-b-2 border-dotted border-black p-4 font-tv text-lg md:text-xl'>
+      <li className='mr-10 font-medium uppercase lg:mr-20'>
         <a href='/'>Theresa Baumgartner</a>
       </li>
-      <li className='uppercase md:text-lg'>
+      <li className='uppercase'>
         <a href='/contact'>Contact</a>
       </li>
     </ul>

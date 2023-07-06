@@ -11,8 +11,8 @@ export default function Viewer({ post }: { post?: Post }) {
   return (
     <div className='relative'>
       <Section>
-        <h1 className='font-tv uppercase md:text-lg'>{title}</h1>
-        <h2 className='mb-2 font-tv text-2xl uppercase md:text-3xl lg:text-4xl'>
+        <h1 className='font-tv text-lg uppercase md:text-xl'>{title}</h1>
+        <h2 className='mb-2 font-tv text-3xl uppercase md:text-4xl lg:text-5xl'>
           {subtitle}
         </h2>
       </Section>
@@ -28,7 +28,7 @@ export default function Viewer({ post }: { post?: Post }) {
           />
         ))}
       </div>
-      <Section className='mb-20 mt-4 font-tv'>
+      <Section className='mb-20 mt-4 lg:text-lg'>
         <div
           dangerouslySetInnerHTML={{
             __html: documentToHtmlString(description.json),
