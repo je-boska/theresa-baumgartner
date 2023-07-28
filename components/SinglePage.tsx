@@ -1,9 +1,9 @@
 import React from 'react';
 import Container from './Container';
 import Section from './Section';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Image from 'next/image';
 import { Page } from '@/types/shared';
+import { renderRichTextWithMedia } from '@/utils/richText';
 
 export default function SinglePage({ title, description, coverImage }: Page) {
   return (
@@ -12,11 +12,7 @@ export default function SinglePage({ title, description, coverImage }: Page) {
         <h1 className='mb-8 font-tv text-3xl uppercase md:text-4xl lg:text-5xl'>
           {title}
         </h1>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: documentToHtmlString(description.json),
-          }}
-        />
+        <div>{renderRichTextWithMedia(description)}</div>
         {coverImage ? (
           <Image
             src={coverImage.url}

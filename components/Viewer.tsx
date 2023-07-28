@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import type { Post } from '../types/shared';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Section from './Section';
+import type { Post } from '../types/shared';
+import { renderRichTextWithMedia } from '@/utils/richText';
 
 export default function Viewer({ post }: { post?: Post }) {
   if (!post) return <div></div>;
@@ -29,11 +29,7 @@ export default function Viewer({ post }: { post?: Post }) {
         ))}
       </div>
       <Section className='mb-20 mt-4 lg:text-lg'>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: documentToHtmlString(description.json),
-          }}
-        />
+        <div>{renderRichTextWithMedia(description)}</div>
       </Section>
     </div>
   );
