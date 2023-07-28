@@ -7,7 +7,28 @@ export async function getHomePage() {
       page (id: "2Tj4SvQiQQ106swMZLMVU") {
         title
         description {
-            json
+          json
+          links {
+            assets {
+              block {
+                sys {
+                  id
+                }
+                contentType
+                url
+              }
+            }
+            entries {
+              block {
+                sys {
+                  id
+                }
+                ... on YoutubeEmbed {
+                  shareLink
+                }
+              }
+            }
+          }
         }
         coverImage {
             url

@@ -7,9 +7,5 @@ export default function Section({
   className?: string;
   children: ReactNode;
 }) {
-  return (
-    <section className={'mx-auto max-w-5xl p-4 ' + className}>
-      {children}
-    </section>
-  );
+  return <section className={'' + className}>{children}</section>;
 }

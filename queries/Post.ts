@@ -4,15 +4,36 @@ import { contentfulQuery } from './Query';
 export async function getPosts() {
   const query = /* GRAPHQL */ `
     query PostsQuery {
-      postCollection (limit: 100) {
+      postCollection (limit: 10) {
         items {
           title
           slug
           subtitle
           description {
             json
+            links {
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  contentType
+                  url
+                }
+              }
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                  ... on YoutubeEmbed {
+                    shareLink
+                  }
+                }
+              }
+            }
           }
-          imagesCollection(limit: 100) {
+          imagesCollection(limit: 10) {
             items {
               url
               title

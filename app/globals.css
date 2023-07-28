@@ -24,3 +24,15 @@
   color: #fff;
   text-shadow: #000 0px 2px 20px;
 }
+
+/* IFRAME */
+
+.youtube-iframe-container {
+  @apply my-8;
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.youtube-iframe-container iframe {
+  @apply absolute left-0 top-0 h-full w-full;
+}

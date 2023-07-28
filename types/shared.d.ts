@@ -48,3 +48,8 @@ export type Asset = {
   width: number;
   height: number;
 };
+
+export type EmbeddedEntry = {
+  sys: { id: string };
+  shareLink: string;
+};

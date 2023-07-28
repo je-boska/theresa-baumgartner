@@ -7,7 +7,28 @@ export async function getContactPage() {
       page (id: "hoxa3LULdSx52ABwcwSKc") {
         title
         description {
-            json
+          json
+          links {
+            assets {
+              block {
+                sys {
+                  id
+                }
+                contentType
+                url
+              }
+            }
+            entries {
+              block {
+                sys {
+                  id
+                }
+                ... on YoutubeEmbed {
+                  shareLink
+                }
+              }
+            }
+          }
         }
       }
     }`;
