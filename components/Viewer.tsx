@@ -10,9 +10,9 @@ export default function Viewer({ post }: { post?: Post }) {
 
   return (
     <div className='relative'>
-      <Section>
-        <h1 className='font-tv text-lg uppercase md:text-xl'>{title}</h1>
-        <h2 className='mb-2 font-tv text-3xl uppercase md:text-4xl lg:text-5xl'>
+      <Section className='my-8'>
+        <h1 className='text-lg uppercase md:text-xl'>{title}</h1>
+        <h2 className='mb-2 text-3xl uppercase md:text-4xl lg:text-5xl'>
           {subtitle}
         </h2>
       </Section>

@@ -57,7 +57,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
                 height={imagesCollection.items[0].height}
                 width={imagesCollection.items[0].width}
               />
-              <h2 className='px-4 py-2 font-tv text-lg uppercase md:text-xl'>
+              <h2 className='px-4 py-2  text-lg uppercase md:text-xl'>
                 <span>{title}</span>
                 <br />
                 <span>{subtitle}</span>

@@ -8,19 +8,20 @@ import { renderRichTextWithMedia } from '@/utils/richText';
 export default function SinglePage({ title, description, coverImage }: Page) {
   return (
     <Container>
+      {coverImage ? (
+        <Image
+          className='mt-0 h-[400px] w-full object-cover'
+          src={coverImage.url}
+          height={coverImage.height}
+          width={coverImage.width}
+          alt=''
+        />
+      ) : null}
       <Section>
-        <h1 className='mb-8 font-tv text-3xl uppercase md:text-4xl lg:text-5xl'>
+        <h1 className='my-8 text-3xl uppercase md:text-4xl lg:text-5xl'>
           {title}
         </h1>
         <div>{renderRichTextWithMedia(description)}</div>
-        {coverImage ? (
-          <Image
-            src={coverImage.url}
-            height={coverImage.height}
-            width={coverImage.width}
-            alt=''
-          />
-        ) : null}
       </Section>
     </Container>
   );

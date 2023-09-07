@@ -21,6 +21,7 @@ export function renderRichTextWithMedia(document: RichText) {
             [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
               const asset = getAssetById(node.data.target.sys.id, blockAssets);
               if (!asset) return;
+
               return (
                 <Image
                   src={asset?.url}

@@ -1,6 +1,6 @@
 export default function Nav() {
   return (
-    <ul className='border-b-2 border-dotted border-black p-4 font-tv text-lg md:text-xl'>
+    <ul className='border-b-2 border-dotted border-black p-4 text-lg md:text-xl'>
       <li className='mr-10 font-medium uppercase lg:mr-20'>
         <a href='/'>Theresa Baumgartner</a>
       </li>
