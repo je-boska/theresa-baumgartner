@@ -10,7 +10,7 @@ const getEntryById = (id: string, entries: EmbeddedEntry[]) =>
   entries.filter((entry) => entry.sys.id === id).pop();
 
 export function renderRichTextWithMedia(document: RichText) {
-  if (document.links) {
+  if (document && document.links) {
     const blockAssets = document.links.assets.block;
     const blockEntries = document.links.entries.block;
 

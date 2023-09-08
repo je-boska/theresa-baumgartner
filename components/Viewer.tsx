@@ -11,9 +11,9 @@ export default function Viewer({ post }: { post?: Post }) {
   return (
     <div className='relative'>
       <Section className='my-8'>
-        <h1 className='text-lg uppercase md:text-xl'>{title}</h1>
+        <h1 className='text-lg uppercase md:text-xl'>{subtitle}</h1>
         <h2 className='mb-2 font-heading text-2xl uppercase md:text-4xl lg:text-6xl'>
-          {subtitle}
+          {title}
         </h2>
       </Section>
       <div className='w-full'>
@@ -28,9 +28,11 @@ export default function Viewer({ post }: { post?: Post }) {
           />
         ))}
       </div>
-      <Section className='mb-20 mt-4 lg:text-lg'>
-        <div>{renderRichTextWithMedia(description)}</div>
-      </Section>
+      {description ? (
+        <Section className='mb-20 mt-4 lg:text-lg'>
+          <div>{renderRichTextWithMedia(description)}</div>
+        </Section>
+      ) : null}
     </div>
   );
 }
