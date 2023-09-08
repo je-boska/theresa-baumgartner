@@ -12,7 +12,7 @@ export default function Viewer({ post }: { post?: Post }) {
     <div className='relative'>
       <Section className='my-8'>
         <h1 className='text-lg uppercase md:text-xl'>{title}</h1>
-        <h2 className='mb-2 font-heading text-3xl uppercase md:text-4xl lg:text-6xl'>
+        <h2 className='mb-2 font-heading text-2xl uppercase md:text-4xl lg:text-6xl'>
           {subtitle}
         </h2>
       </Section>
