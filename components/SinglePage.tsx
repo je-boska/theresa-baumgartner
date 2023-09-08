@@ -18,7 +18,7 @@ export default function SinglePage({ title, description, coverImage }: Page) {
         />
       ) : null}
       <Section>
-        <h1 className='my-8 text-3xl uppercase md:text-4xl lg:text-5xl'>
+        <h1 className='my-8 font-heading text-3xl uppercase md:text-4xl lg:text-6xl'>
           {title}
         </h1>
         <div>{renderRichTextWithMedia(description)}</div>
