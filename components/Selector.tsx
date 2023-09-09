@@ -29,7 +29,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
   return (
     <div
       className={cx(
-        'fixed bottom-0 top-0 z-10 w-full overflow-y-scroll border-dotted border-black bg-white transition-all duration-300 lg:w-1/4 lg:border-l-2',
+        'fixed bottom-0 top-0 z-10 w-full overflow-y-scroll border-black bg-white transition-all duration-300 lg:w-1/4 lg:border-l-2',
         {
           'right-0': isOpen,
           '-right-full lg:-right-1/4': !isOpen,
@@ -38,7 +38,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
     >
       <div className='relative w-full'>
         <Nav />
-        <nav>
+        <nav className='mt-2'>
           {posts.map(({ title, subtitle, slug, imagesCollection }) => (
             <div
               key={slug}
