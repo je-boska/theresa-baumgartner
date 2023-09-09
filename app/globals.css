@@ -37,6 +37,10 @@ section p {
   @apply mb-4 max-w-5xl;
 }
 
+section ul {
+  @apply mb-4;
+}
+
 section ul p {
   @apply mb-0;
 }

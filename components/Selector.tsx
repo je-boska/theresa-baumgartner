@@ -38,7 +38,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
     >
       <div className='relative w-full'>
         <Nav />
-        <nav className='mt-2'>
+        <nav className='lg:mt-2'>
           {posts.map(({ title, subtitle, slug, imagesCollection }) => (
             <div
               key={slug}
@@ -51,16 +51,13 @@ export default function Selector({ posts }: { posts: Post[] }) {
               }}
             >
               <Image
-                className='w-full lg:hidden'
+                className='aspect-video w-full object-cover lg:hidden'
                 src={imagesCollection.items[0].url}
                 alt={title}
                 height={imagesCollection.items[0].height}
                 width={imagesCollection.items[0].width}
               />
               <div className='py-2'>
-                <h2 className='px-4 text-lg uppercase md:text-xl'>
-                  <span>{subtitle}</span>
-                </h2>
                 <h2 className='px-4 text-lg uppercase md:text-xl'>
                   <span>{title}</span>
                 </h2>

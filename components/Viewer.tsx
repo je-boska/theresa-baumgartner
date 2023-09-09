@@ -19,7 +19,7 @@ export default function Viewer({ post }: { post?: Post }) {
       <div className='w-full'>
         {imagesCollection.items.map(({ url, title, height, width }, idx) => (
           <Image
-            className='w-full'
+            className='w-full lg:aspect-video lg:object-cover'
             src={url}
             alt={title}
             key={idx}

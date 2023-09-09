@@ -10,7 +10,7 @@ export default function SinglePage({ title, description, coverImage }: Page) {
     <Container>
       {coverImage ? (
         <Image
-          className='mt-0 h-[400px] w-full object-cover'
+          className='mt-0 h-[200px] w-full object-cover md:h-[400px]'
           src={coverImage.url}
           height={coverImage.height}
           width={coverImage.width}
