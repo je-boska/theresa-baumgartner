@@ -29,7 +29,7 @@ export default function Viewer({ post }: { post?: Post }) {
         ))}
       </div>
       {description ? (
-        <Section className='mb-20 mt-4 lg:text-lg'>
+        <Section className='lg:text-lg'>
           <div>{renderRichTextWithMedia(description)}</div>
         </Section>
       ) : null}

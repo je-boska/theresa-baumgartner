@@ -30,6 +30,12 @@ export async function getContactPage() {
             }
           }
         }
+        coverImage {
+          url
+          width
+          height
+          title
+        }
       }
     }`;
   const { data } = await contentfulQuery(query);

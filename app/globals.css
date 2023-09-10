@@ -12,7 +12,6 @@
 /* IFRAME */
 
 .iframe-container {
-  @apply my-8;
   position: relative;
   padding-bottom: 56.25%;
 }
@@ -34,7 +33,7 @@ section p {
 }
 
 section p {
-  @apply mb-4 max-w-5xl;
+  @apply my-4 max-w-5xl;
 }
 
 section ul {

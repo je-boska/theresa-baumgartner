@@ -30,6 +30,12 @@ export async function getDatesPage() {
             }
           }
         }
+        coverImage {
+          url
+          width
+          height
+          title
+        }
       }
     }`;
   const { data } = await contentfulQuery(query);
