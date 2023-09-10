@@ -4,11 +4,12 @@ import { contentfulQuery } from './Query';
 export async function getPosts() {
   const query = /* GRAPHQL */ `
     query PostsQuery {
-      postCollection (limit: 10) {
+      postCollection (limit: 100) {
         items {
           title
           slug
           subtitle
+          date
           description {
             json
             links {
@@ -19,6 +20,8 @@ export async function getPosts() {
                   }
                   contentType
                   url
+                  width
+                  height
                 }
               }
               entries {
@@ -27,6 +30,9 @@ export async function getPosts() {
                     id
                   }
                   ... on YoutubeEmbed {
+                    shareLink
+                  }
+                  ... on VimeoEmbed {
                     shareLink
                   }
                 }
@@ -46,5 +52,10 @@ export async function getPosts() {
       }
     }`;
   const { data } = await contentfulQuery(query);
-  return data.postCollection.items as Post[];
+
+  const sortedPosts: Post[] = data.postCollection.items.sort(
+    (a: Post, b: Post) => (a.date < b.date ? 1 : -1)
+  );
+
+  return sortedPosts;
 }

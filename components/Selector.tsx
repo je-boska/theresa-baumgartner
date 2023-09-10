@@ -39,7 +39,7 @@ export default function Selector({ posts }: { posts: Post[] }) {
       <div className='relative w-full'>
         <Nav />
         <nav className='lg:mt-2'>
-          {posts.map(({ title, subtitle, slug, imagesCollection }) => (
+          {posts.map(({ title, date, slug, imagesCollection }) => (
             <div
               key={slug}
               className='cursor-pointer'

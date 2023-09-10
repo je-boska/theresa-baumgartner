@@ -27,6 +27,7 @@ export type Post = {
   title: string;
   slug: string;
   subtitle: string;
+  date: string;
   description: RichText;
   imagesCollection: {
     items: Asset[];

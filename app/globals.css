@@ -11,13 +11,13 @@
 
 /* IFRAME */
 
-.youtube-iframe-container {
+.iframe-container {
   @apply my-8;
   position: relative;
   padding-bottom: 56.25%;
 }
 
-.youtube-iframe-container iframe {
+.iframe-container iframe {
   @apply absolute left-0 top-0 h-full w-full;
 }
 

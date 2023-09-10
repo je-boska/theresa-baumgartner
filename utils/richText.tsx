@@ -35,10 +35,24 @@ export function renderRichTextWithMedia(document: RichText) {
             [BLOCKS.EMBEDDED_ENTRY]: (node: Block | Inline) => {
               const entry = getEntryById(node.data.target.sys.id, blockEntries);
               if (!entry) return;
-
+              console.log(entry);
+              if (entry.shareLink.includes('vimeo')) {
+                return (
+                  <div className='iframe-container'>
+                    <iframe
+                      src={`https://player.vimeo.com/video/${entry.shareLink.slice(
+                        -9
+                      )}`}
+                      width='100%'
+                      allow='autoplay; fullscreen; picture-in-picture'
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                );
+              }
               if (entry.shareLink.includes('youtu.be')) {
                 return (
-                  <div className='youtube-iframe-container'>
+                  <div className='iframe-container'>
                     <iframe
                       src={`https://www.youtube.com/embed/${entry.shareLink.slice(
                         -11
