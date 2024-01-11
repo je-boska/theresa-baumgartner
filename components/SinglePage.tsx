@@ -5,7 +5,12 @@ import Image from 'next/image';
 import { Page } from '@/types/shared';
 import { renderRichTextWithMedia } from '@/utils/richText';
 
-export default function SinglePage({ title, description, coverImage }: Page) {
+export default function SinglePage({
+  title,
+  description,
+  coverImage,
+  children,
+}: Page) {
   return (
     <Container>
       {coverImage ? (
@@ -21,7 +26,8 @@ export default function SinglePage({ title, description, coverImage }: Page) {
         <h1 className='my-8 font-heading text-2xl uppercase md:text-4xl lg:text-6xl'>
           {title}
         </h1>
-        <div>{renderRichTextWithMedia(description)}</div>
+        {description && <div>{renderRichTextWithMedia(description)}</div>}
+        {children && children}
       </Section>
     </Container>
   );

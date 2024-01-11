@@ -1,4 +1,5 @@
 import { Document } from '@contentful/rich-text-types';
+import { ReactNode } from 'react';
 
 export type RichText = {
   json: Document;
@@ -36,8 +37,9 @@ export type Post = {
 
 export type Page = {
   title: string;
-  description: RichText;
+  description?: RichText;
   coverImage?: Asset;
+  children?: ReactNode;
 };
 
 export type Asset = {
@@ -53,4 +55,9 @@ export type Asset = {
 export type EmbeddedEntry = {
   sys: { id: string };
   shareLink: string;
+};
+
+export type DateEntry = {
+  title: string;
+  date: string;
 };

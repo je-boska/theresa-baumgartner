@@ -1,4 +1,4 @@
-import { Page } from '@/types/shared';
+import { DateEntry, Page } from '@/types/shared';
 import { contentfulQuery } from './Query';
 
 export async function getDatesPage() {
@@ -37,7 +37,21 @@ export async function getDatesPage() {
           title
         }
       }
+      dateCollection {
+        items {
+          title
+          date
+        }
+      }
     }`;
   const { data } = await contentfulQuery(query);
-  return data.page as Page;
+
+  const sortedDates: DateEntry[] = data.dateCollection.items.sort(
+    (a: DateEntry, b: DateEntry) => (a.date < b.date ? 1 : -1)
+  );
+
+  return {
+    page: data.page as Page,
+    dates: sortedDates as DateEntry[],
+  };
 }
