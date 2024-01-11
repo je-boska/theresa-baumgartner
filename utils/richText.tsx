@@ -1,7 +1,8 @@
 import { Asset, EmbeddedEntry, RichText } from '@/types/shared';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, Block, Inline } from '@contentful/rich-text-types';
+import { BLOCKS, Block, INLINES, Inline } from '@contentful/rich-text-types';
 import Image from 'next/image';
+import { ReactNode } from 'react';
 
 const getAssetById = (id: string, assets: Asset[]) =>
   assets.filter((asset) => asset.sys.id === id).pop();
@@ -64,6 +65,20 @@ export function renderRichTextWithMedia(document: RichText) {
                   </div>
                 );
               }
+            },
+            [INLINES.HYPERLINK]: (
+              link: Block | Inline,
+              children: ReactNode
+            ) => {
+              return (
+                <a
+                  href={link.data.uri}
+                  target='_blank'
+                  rel='noopener nofollow noreferrer'
+                >
+                  {children}
+                </a>
+              );
             },
           },
         })}

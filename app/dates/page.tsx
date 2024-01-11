@@ -9,7 +9,7 @@ export default async function dates() {
 
   return (
     <SinglePage title={title} coverImage={coverImage}>
-      <div className='px-4 md:px-8'>
+      <div className='px-4 pb-20 md:px-8'>
         {dates.map(({ date, title }, idx) => (
           <div key={idx}>
             <span className='font-semibold'>

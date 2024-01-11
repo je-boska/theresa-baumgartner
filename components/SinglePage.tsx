@@ -26,7 +26,9 @@ export default function SinglePage({
         <h1 className='my-8 font-heading text-2xl uppercase md:text-4xl lg:text-6xl'>
           {title}
         </h1>
-        {description && <div>{renderRichTextWithMedia(description)}</div>}
+        {description && (
+          <div className='pb-20'>{renderRichTextWithMedia(description)}</div>
+        )}
         {children && children}
       </Section>
     </Container>
